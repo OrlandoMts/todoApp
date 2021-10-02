@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import React from "react";
+import { TodoCounter } from "./components/TodoCounter";
+import { TodoSearch } from "./components/TodoSearch";
+import { TodoList } from "./components/TodoList";
+import { TodoItem } from "./components/TodoItem";
+import { CreateToDoButton } from "./components/CreateToDoButton";
+// import './App.css';
+
+const todos = [
+  { text: "Cortar cebolla", completed: true },
+  { text: "Tomar el cursso de intro a React", completed: false },
+  { text: "Llorar con la llorona", completed: false },
+  { text: "LALALALAA", completed: true },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <TodoCounter />
+
+      <TodoSearch />
+      <TodoList>
+        {todos.map(todo => (
+          <TodoItem
+            key={todo.text}
+            text={todo.text}
+            completed={todo.completed}
+          />
+        ))}
+      </TodoList>
+
+      <CreateToDoButton />
+    </React.Fragment>
   );
 }
 
 export default App;
+
+
+// modificar los css TodoItem y toDoButton
