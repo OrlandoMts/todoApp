@@ -13,7 +13,7 @@ import { useLocalStorage } from "./customHooks/useLocalStorage";
 
 function App() {
 
-  const [toDos, saveToDos] = useLocalStorage('TODOS_V1', []);
+  const {item: toDos, saveItem: saveToDos, loading: loading} = useLocalStorage('TODOS_V1', []);
   
   const [searchToDo, setSearchToDo] = React.useState('');
   
@@ -65,6 +65,7 @@ function App() {
       searchedTodos = { searchedTodos }
       completeToDo = { completeToDo }
       deleteToDo = { deleteToDo }
+      loading = { loading }
     />
   );
 }
