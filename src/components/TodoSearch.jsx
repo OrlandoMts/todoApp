@@ -1,10 +1,13 @@
 import React from 'react'
 import '../styles/TodoSearch.css'
+import { TodoContext } from './TodoContext';
 
-function TodoSearch({ searchToDo, setSearchToDo }) {
+function TodoSearch() {
+
+    const { searchToDo, setSearchToDo } = React.useContext(TodoContext);
 
     const onSearchValue = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         setSearchToDo(e.target.value);
     }
 
